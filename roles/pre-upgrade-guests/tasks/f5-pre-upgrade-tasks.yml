@@ -1,6 +1,8 @@
 
+#TODO: Leonardo added filename below
 - name: Fetch a qkview from the VCMP guest "{{ item }}"
   bigip_qkview:
+    filename: "{{ inventory_hostname }}.qkview"
     dest: "{{ BACKUPS }}/{{ ITSM }}-{{ item }}.qkview"
     exclude_core: yes
     exclude: all

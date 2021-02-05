@@ -75,7 +75,11 @@
   tags:
     - upgrade-guests
 
-
+#TODO: Leonardo added pause here
+- name: Sleep for 10 seconds to account for deleting the volume
+  wait_for:
+    timeout: 10
+  delegate_to: localhost
 
 - name: Install software on the VCMP guest "{{ item }}"
   bigip_software_install:

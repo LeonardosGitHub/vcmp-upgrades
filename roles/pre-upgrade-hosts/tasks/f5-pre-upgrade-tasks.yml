@@ -3,8 +3,10 @@
   tags:
     - pre-upgrade-hosts
 
+#TODO: Leonardo added filename to this, to see if it'll help with the failures
 - name: Fetch a qkview from the remote device
   bigip_qkview:
+    filename: "{{ inventory_hostname }}.qkview"
     dest: "{{ BACKUPS }}/{{ ITSM }}-{{ inventory_hostname }}.qkview"
     exclude_core: yes
     provider:
@@ -15,6 +17,7 @@
   delegate_to: localhost
   tags:
     - pre-upgrade-hosts
+
 
 - name: Download a new UCS
   bigip_ucs_fetch:
